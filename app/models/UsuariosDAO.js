@@ -10,7 +10,6 @@ class UsuariosDAO {
             })
         })
     }
-
 }
 
 module.exports = () => {
