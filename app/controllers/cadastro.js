@@ -19,9 +19,16 @@ module.exports.cadastrar = (application, req, res) => {
     if (erros) {
         res.render('cadastro', {
             validacao: erros,
-            dados : dados
+            dados: dados
         })
         return
     }
+    const connection = application.config.dbConnection
+    
+    const UsuariosDAO = new application.app.models.UsuariosDAO(connection)
+
+    UsuariosDAO.inserirUsuario(dados)
+
+
     res.send('Podemos cadastrar')
 }
