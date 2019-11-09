@@ -34,7 +34,6 @@ class JogoDAO {
             })
         })
     }
-
 }
 
 module.exports = () => JogoDAO

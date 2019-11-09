@@ -30,3 +30,12 @@ module.exports.sair = (application, req, res) => {
         })
     })
 }
+
+
+module.exports.suditos = (application, req,res) =>{
+    res.render("aldeoes")
+}
+
+module.exports.pergaminhos = (application, req,res) =>{
+    res.render("pergaminhos")
+}
