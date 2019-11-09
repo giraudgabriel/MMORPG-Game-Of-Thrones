@@ -26,9 +26,10 @@ module.exports.cadastrar = (application, req, res) => {
     const connection = application.config.dbConnection
     
     const UsuariosDAO = new application.app.models.UsuariosDAO(connection)
+    const JogoDAO = new application.app.models.JogoDAO(connection)
 
     UsuariosDAO.inserirUsuario(dados)
-
+    JogoDAO.gerarParametros(dados.usuario)
 
     res.send('Podemos cadastrar')
 }
