@@ -1,3 +1,21 @@
 module.exports.jogo = (application, req, res) => {
-    res.render('jogo')
+    if (req.session.autorizado) {
+        res.render("jogo")
+    } else {
+        res.render("index", {
+            dados: {},
+            validacao: [{
+                msg: 'É necessário estar logado!'
+            }]
+        })
+    }
+}
+
+module.exports.sair = (application, req, res) => {
+    req.session.destroy((err) => {
+        res.render("index", {
+            dados: {},
+            validacao: []
+        })
+    })
 }

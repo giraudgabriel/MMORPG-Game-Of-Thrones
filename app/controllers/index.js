@@ -21,5 +21,7 @@ module.exports.autenticar = (application, req, res) => {
         })
         return
     }
-    res.send("Sessão iniciada")
+    const UsuariosDAO = new application.app.models.UsuariosDAO(application.config.dbConnection)
+    
+    UsuariosDAO.autenticar(dados,req, res)
 }
